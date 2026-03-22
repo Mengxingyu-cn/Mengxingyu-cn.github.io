@@ -1,0 +1,2484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MENG XINGYU - Personal Website</title>
+  <meta
+    name="description"
+    content="This is MENG XINGYU's personal website, featuring his portfolio, work experience, and future aspirations."
+  >
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='82'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E"
+  >
+  <style>
+    :root {
+      --bg: #050816;
+      --panel: rgba(10, 17, 35, 0.82);
+      --panel-strong: rgba(11, 19, 39, 0.96);
+      --border: rgba(148, 163, 184, 0.14);
+      --text: #e2e8f0;
+      --muted: #8b9bb4;
+      --cyan: #22d3ee;
+      --purple: #c084fc;
+      --emerald: #34d399;
+      --shadow: 0 24px 80px rgba(2, 8, 23, 0.45);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.12), transparent 24%),
+        radial-gradient(circle at 80% 18%, rgba(192, 132, 252, 0.14), transparent 26%),
+        radial-gradient(circle at 68% 74%, rgba(52, 211, 153, 0.08), transparent 22%),
+        linear-gradient(180deg, #040816 0%, #07111f 38%, #050816 100%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .shell {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before,
+    .shell::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      border-radius: 999px;
+      pointer-events: none;
+      filter: blur(70px);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .shell::before {
+      top: 90px;
+      left: -80px;
+      width: 260px;
+      height: 260px;
+      background: rgba(34, 211, 238, 0.12);
+    }
+
+    .shell::after {
+      top: 120px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      background: rgba(192, 132, 252, 0.14);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 8, 22, 0.72);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--cyan);
+    }
+
+    .hero {
+      padding: 104px 0 72px;
+      text-align: center;
+    }
+
+    .hero-frame {
+      position: relative;
+      overflow: hidden;
+      padding: 54px 28px;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      border-radius: 40px;
+      background:
+        linear-gradient(180deg, rgba(10, 17, 35, 0.82), rgba(8, 14, 28, 0.94)),
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.1), transparent 34%);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(34, 211, 238, 0.08);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 16px currentColor;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin: 0;
+    }
+
+    .hero h1 {
+      margin-top: 24px;
+      font-size: clamp(2.8rem, 6vw, 5.6rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+    }
+    .hero h1 .title-code {
+      color: var(--cyan);
+    }
+
+    .hero h1 .title-art {
+      color: rgb(48, 197, 144);
+    }
+
+    .hero h1 .title-ai {
+      color: var(--purple);
+    }
+
+    .hero-copy {
+      width: min(760px, 100%);
+      margin: 24px auto 0;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #07111f;
+      background: linear-gradient(90deg, #f8fafc, #dbeafe);
+      box-shadow: 0 16px 50px rgba(34, 211, 238, 0.12);
+    }
+
+    .button-secondary {
+      border-color: rgba(148, 163, 184, 0.18);
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--text);
+    }
+
+    .icon-button {
+      position: relative;
+      width: 52px;
+      padding: 0;
+    }
+
+    .icon-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-button::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%) translateY(4px);
+      padding: 8px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 10px;
+      background: rgba(7, 17, 31, 0.96);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .icon-button:hover::after,
+    .icon-button:focus-visible::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    main {
+      padding-bottom: 88px;
+    }
+
+    .section {
+      margin-top: 88px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .section-title[data-tone="cyan"] {
+      color: var(--cyan);
+    }
+
+    .section-title[data-tone="purple"] {
+      color: var(--purple);
+    }
+
+    .section-title[data-tone="emerald"] {
+      color: var(--emerald);
+    }
+
+    .section-copy {
+      width: min(720px, 100%);
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab {
+      padding: 12px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tab.is-active {
+      color: #06111d;
+      border-color: transparent;
+      background: linear-gradient(90deg, var(--cyan), #67e8f9);
+    }
+
+    .panel {
+      min-height: 520px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid.cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-3px);
+      border-color: rgba(34, 211, 238, 0.34);
+      background: rgba(12, 20, 41, 0.92);
+    }
+
+    .card-cover {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 178px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 48%),
+        linear-gradient(135deg, rgba(8, 15, 31, 0.55), rgba(3, 7, 18, 0.88));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .card-cover.has-image {
+      min-height: 220px;
+      padding: 0;
+      background: #050816;
+    }
+
+    .card-cover::after {
+      content: attr(data-badge);
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #d8e3f1;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card-cover-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .card-cover-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(3, 7, 18, 0.08), rgba(3, 7, 18, 0.82)),
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 42%);
+    }
+
+    .cover-icon {
+      width: 52px;
+      height: 52px;
+      color: rgba(148, 163, 184, 0.34);
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .card-copy {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.96rem;
+    }
+
+    .grid.cards .card-copy {
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+    }
+
+    .card.is-gallery {
+      cursor: pointer;
+    }
+
+    .card.is-gallery:focus-visible {
+      outline: 2px solid rgba(34, 211, 238, 0.6);
+      outline-offset: 4px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(15, 23, 42, 0.7);
+      color: #b7c4d8;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .system-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .system-card {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.42fr) minmax(0, 0.58fr);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .system-visual {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 260px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 22% 20%, rgba(192, 132, 252, 0.2), transparent 34%),
+        linear-gradient(160deg, rgba(15, 23, 42, 0.88), rgba(4, 10, 22, 0.96));
+      border-right: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .system-visual-button {
+      appearance: none;
+      width: 100%;
+      padding: 0;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .system-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .system-visual.has-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(4, 10, 22, 0.08), rgba(4, 10, 22, 0.44)),
+        radial-gradient(circle at center, rgba(4, 10, 22, 0.04), rgba(4, 10, 22, 0.26));
+    }
+
+    .system-visual-button:hover .system-play,
+    .system-visual-button:focus-visible .system-play {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(34, 211, 238, 0.5);
+      background: rgba(8, 15, 31, 0.84);
+      color: var(--cyan);
+    }
+
+    .system-visual-button:focus-visible {
+      outline: 2px solid rgba(34, 211, 238, 0.62);
+      outline-offset: -2px;
+    }
+
+    .system-play {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 999px;
+      background: rgba(8, 15, 31, 0.72);
+      color: #f8fafc;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .system-play .cover-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .system-visual .cover-icon {
+      position: relative;
+      z-index: 1;
+      width: 84px;
+      height: 84px;
+    }
+
+    .system-body {
+      padding: 28px;
+    }
+
+    .system-head {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .system-title {
+      font-size: clamp(1.7rem, 2vw, 2.3rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 18px;
+      margin-top: 22px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #d9e2ef;
+      font-size: 0.94rem;
+    }
+
+    .feature-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--purple);
+      box-shadow: 0 0 14px rgba(192, 132, 252, 0.5);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .meta-label {
+      color: #64748b;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .meta-value {
+      margin-top: 6px;
+      font-weight: 700;
+    }
+
+    .tutorial-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .tutorial-showcase {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.42fr) minmax(0, 0.58fr);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .tutorial-showcase-visual {
+      position: relative;
+      min-height: 280px;
+      border-right: 1px solid rgba(148, 163, 184, 0.1);
+      background:
+        linear-gradient(180deg, rgba(3, 7, 18, 0.08), rgba(3, 7, 18, 0.82)),
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.18), transparent 42%);
+    }
+
+    .tutorial-showcase-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(4, 10, 22, 0.04), rgba(4, 10, 22, 0.36)),
+        radial-gradient(circle at center, rgba(4, 10, 22, 0.02), rgba(4, 10, 22, 0.18));
+    }
+
+    .tutorial-showcase-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tutorial-showcase-body {
+      padding: 28px;
+    }
+
+    .tutorial-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .tutorial-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--emerald);
+    }
+
+    .tutorial-level {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      color: var(--emerald);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tutorial-link-row {
+      margin-top: 22px;
+    }
+
+    .tutorial-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      background: rgba(8, 15, 31, 0.72);
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .tutorial-link:hover,
+    .tutorial-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(34, 211, 238, 0.44);
+      background: rgba(8, 15, 31, 0.9);
+    }
+
+    .timeline {
+      position: relative;
+      margin-left: 16px;
+      padding-left: 28px;
+      border-left: 2px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 34px 16px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -37px;
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--purple);
+      border-radius: 50%;
+      background: var(--bg);
+      box-shadow: 0 0 0 6px rgba(192, 132, 252, 0.14);
+    }
+
+    .timeline-role {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      align-items: baseline;
+    }
+
+    .timeline-role h3 {
+      font-size: 1.55rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    .timeline-company {
+      color: var(--purple);
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
+
+    .timeline-period {
+      margin-top: 10px;
+      color: #667892;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .timeline-copy {
+      max-width: 840px;
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .timeline-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .timeline-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(192, 132, 252, 0.2);
+      background: rgba(15, 23, 42, 0.7);
+      color: #d8b4fe;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .timeline-link:hover,
+    .timeline-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(192, 132, 252, 0.45);
+      background: rgba(30, 18, 48, 0.86);
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+    }
+
+    .vision-card,
+    .roadmap-list .roadmap-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: var(--panel-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .vision-card {
+      padding: 30px;
+    }
+
+    .vision-card::after {
+      content: "";
+      position: absolute;
+      top: -30px;
+      right: -18px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(34, 211, 238, 0.08);
+      filter: blur(26px);
+    }
+
+    .vision-card h3 {
+      position: relative;
+      z-index: 1;
+      color: var(--cyan);
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+    }
+
+    .vision-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .vision-card p + p {
+      margin-top: 16px;
+    }
+
+    .roadmap-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .roadmap-card {
+      display: flex;
+      gap: 18px;
+      padding: 22px;
+      transition: background 0.2s ease;
+    }
+
+    .roadmap-card:hover {
+      background: rgba(14, 24, 46, 0.96);
+    }
+    .roadmap-index {
+      flex: none;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .roadmap-index[data-tone="emerald"] {
+      color: var(--emerald);
+      background: rgba(52, 211, 153, 0.12);
+    }
+
+    .roadmap-index[data-tone="purple"] {
+      color: var(--purple);
+      background: rgba(192, 132, 252, 0.12);
+    }
+
+    .roadmap-card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .roadmap-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .footer {
+      margin-top: 88px;
+      border-top: 1px solid var(--border);
+      background: rgba(4, 9, 19, 0.5);
+    }
+
+    .footer-inner {
+      padding: 36px 0 56px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .footer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(10, 17, 35, 0.7);
+    }
+
+    .footer-copy {
+      color: #64748b;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    body.gallery-open {
+      overflow: hidden;
+    }
+
+    .gallery-dialog[hidden] {
+      display: none;
+    }
+
+    .gallery-dialog {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .gallery-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 6, 23, 0.82);
+      backdrop-filter: blur(14px);
+    }
+
+    .gallery-shell {
+      position: relative;
+      z-index: 1;
+      width: min(1080px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(10, 17, 35, 0.96), rgba(7, 12, 25, 0.98)),
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.08), transparent 34%);
+      box-shadow: 0 28px 110px rgba(2, 8, 23, 0.72);
+    }
+
+    .gallery-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.84);
+      color: var(--text);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    .gallery-close:hover,
+    .gallery-nav:hover,
+    .gallery-close:focus-visible,
+    .gallery-nav:focus-visible {
+      border-color: rgba(34, 211, 238, 0.44);
+      color: var(--cyan);
+    }
+
+    .gallery-stage {
+      position: relative;
+      padding: 32px 84px 20px;
+    }
+
+    .gallery-figure {
+      overflow: hidden;
+      border-radius: 20px;
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      background: rgba(2, 6, 23, 0.65);
+    }
+
+    .gallery-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 62vh;
+      object-fit: contain;
+      background: #020617;
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.84);
+      color: var(--text);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .gallery-nav.prev {
+      left: 22px;
+    }
+
+    .gallery-nav.next {
+      right: 22px;
+    }
+
+    .gallery-copy {
+      padding: 0 32px 32px;
+    }
+
+    .gallery-kicker {
+      color: var(--cyan);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gallery-copy h3 {
+      margin-top: 10px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .gallery-caption {
+      margin-top: 12px;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .gallery-description {
+      margin-top: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.98rem;
+      white-space: pre-line;
+    }
+
+    .video-dialog[hidden] {
+      display: none;
+    }
+
+    .video-shell {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, 100%);
+      max-height: calc(100vh - 48px);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(10, 17, 35, 0.96), rgba(7, 12, 25, 0.98)),
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.08), transparent 34%);
+      box-shadow: 0 28px 110px rgba(2, 8, 23, 0.72);
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .video-stage {
+      padding: 24px;
+    }
+
+    .video-player {
+      display: block;
+      width: 100%;
+      max-height: 56vh;
+      border-radius: 20px;
+      background: #020617;
+      outline: none;
+    }
+
+    .video-stage .gallery-nav[hidden] {
+      display: none;
+    }
+
+    .chat-dialog[hidden] {
+      display: none;
+    }
+
+    .chat-shell {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      width: min(1120px, 100%);
+      height: min(860px, calc(100vh - 48px));
+      height: min(860px, calc(100dvh - 48px));
+      min-height: min(700px, calc(100vh - 48px));
+      min-height: min(700px, calc(100dvh - 48px));
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(10, 17, 35, 0.96), rgba(7, 12, 25, 0.98)),
+        radial-gradient(circle at top, rgba(34, 211, 238, 0.08), transparent 34%);
+      box-shadow: 0 28px 110px rgba(2, 8, 23, 0.72);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 24px 84px 18px 24px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.66));
+    }
+
+    .chat-title {
+      margin-top: 10px;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      line-height: 1.15;
+    }
+
+    .chat-description {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.96rem;
+    }
+
+    .chat-frame-wrap {
+      flex: 1;
+      min-height: 0;
+      background: #020617;
+    }
+
+    .chatbot-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #020617;
+    }
+
+    @media (max-width: 1024px) {
+      .grid.cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tutorial-showcase,
+      .system-card,
+      .vision-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tutorial-showcase-visual,
+      .system-visual {
+        min-height: 220px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      }
+
+      .video-stage {
+        padding: 18px;
+      }
+
+      .video-player {
+        max-height: 50vh;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 14px 18px;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+
+      .hero-frame {
+        padding: 38px 20px;
+        border-radius: 30px;
+      }
+
+      .section {
+        margin-top: 68px;
+      }
+
+      .grid.cards,
+      .tutorial-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-dialog {
+        padding: 16px;
+      }
+
+      .gallery-shell {
+        max-height: calc(100vh - 32px);
+      }
+
+      .gallery-stage {
+        padding: 64px 16px 16px;
+      }
+
+      .gallery-copy {
+        padding: 0 16px 20px;
+      }
+
+      .video-shell {
+        max-height: calc(100vh - 32px);
+      }
+
+      .video-player {
+        max-height: 42vh;
+      }
+
+      .chat-shell {
+        height: calc(100vh - 32px);
+        height: calc(100dvh - 32px);
+        min-height: 0;
+        border-radius: 24px;
+      }
+
+      .chat-header {
+        padding: 18px 72px 14px 18px;
+      }
+
+      .chat-description {
+        font-size: 0.92rem;
+      }
+
+      .gallery-nav {
+        top: auto;
+        bottom: 26px;
+        transform: none;
+        width: 46px;
+        height: 46px;
+      }
+
+      .gallery-nav.prev {
+        left: 16px;
+      }
+
+      .gallery-nav.next {
+        right: 16px;
+      }
+
+      .timeline {
+        margin-left: 8px;
+        padding-left: 20px;
+      }
+
+      .timeline-item::before {
+        left: -29px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar" id="top">
+      <div class="container topbar-inner">
+        <div class="brand">MENG XINGYU</div>
+        <nav class="nav" aria-label="Primary">
+          <a href="#achievements">Undergrad Achievements</a>
+          <a href="#experience">Work Experience</a>
+          <a href="#development">Personal Vision</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-frame">
+          <h1>Welcome to the World of <span class="title-code">Code</span>, <span class="title-art">Art</span> &amp; <span class="title-ai">AI</span></h1>
+          <p class="hero-copy">
+            An engineer focused on cutting-edge technologies, including computer graphics, AIGC,
+            algorithmic logic, aesthetic expression, and BCI. <br />Select
+            <em>Get to Know Me</em> to chat with my AI chatbot, or click the email icon to
+            copy my email address.<br />
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="chat-open" type="button">Get to Know Me</button>
+            <button
+              class="button button-secondary icon-button"
+              id="email-copy"
+              type="button"
+              data-email="mengxingyu.cn@outlook.com"
+              data-tooltip="mengxingyu.cn@outlook.com"
+              aria-label="Copy email address"
+              title="mengxingyu.cn@outlook.com"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 16.5v-9Z"></path>
+                <path d="m5 8 7 5 7-5"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="section" id="achievements">
+        <div class="section-header">
+          <h2 class="section-title" data-tone="cyan">Undergraduate Achievements</h2>
+          <p class="section-copy">
+            During my undergraduate years (2018–2022), I studied in the computer graphics
+            laboratory and completed tasks assigned by professors. My main responsibilities
+            included algorithm development, demo production, editing and proofreading of
+            documents, project application, organizing competitions, recording video courses,
+            and video editing, etc.
+          </p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Achievements categories">
+          <button class="tab is-active" type="button" role="tab" aria-selected="true" data-tab="algorithms">Algorithms</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-tab="systems">Systems</button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-tab="tutorials">Tutorials</button>
+        </div>
+
+        <div id="tab-panel" class="panel" role="tabpanel" aria-live="polite"></div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-header">
+          <h2 class="section-title" data-tone="purple">Work Experience</h2>
+          <p class="section-copy">
+            As a Software Development Engineer at LAYABOX in Beijing (2023–2025), I worked across
+            technical documentation, Tutorial Video, platform engineering, performance testing, AI data
+            annotation, and developer-community support for the LayaAir game engine ecosystem.
+          </p>
+        </div>
+
+        <div id="timeline" class="timeline"></div>
+      </section>
+
+      <section class="section" id="development">
+        <div class="section-header">
+          <h2 class="section-title" data-tone="emerald">Personal Development &amp; Vision</h2>
+          <p class="section-copy">
+            Future research directions and interests will focus on algorithms, art, and AI.
+          </p>
+        </div>
+
+        <div class="vision-grid">
+          <article class="vision-card">
+            <h3>Personal Development</h3>
+            <p>
+              Through previous study and practice, I gradually developed both critical thinking and
+              creative thinking. In recent years, with the rapid rise of generative AI, a growing
+              range of intelligent tools has become an effective amplifier of my personal
+              capabilities, helping me continuously expand the boundaries of my knowledge.
+            </p>
+            <p>
+              After entering professional work, I became increasingly certain of my interest in
+              research and my suitability for it. Driven by my long-term passion for computer
+              graphics, I hope to further connect AI, graphics, and cultural creativity in future
+              research.
+            </p>
+          </article>
+
+          <div class="roadmap-list">
+            <article class="roadmap-card">
+              <div class="roadmap-index" data-tone="emerald">01</div>
+              <div>
+                <h4>Academic Capacity Building</h4>
+                <p>
+                  In research, I am able to use AI kits to explore the boundaries of my own
+                  abilities. In the second half of 2025, I chose BCI, a field I had never worked
+                  in before, as a challenge to test my abilities. With AI assistance, I built an
+                  EEG-based emotion recognition project, completed preprocessing of the DEAP
+                  dataset, and used TensorFlow to build an LSTM-based neural network that predicts
+                  the two emotional indicators, arousal and valence, from EEG signals.
+                </p>
+              </div>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-index" data-tone="purple">02</div>
+              <div>
+                <h4>Industry Vision</h4>
+                <p>
+                  In the future, I hope to invest in innovative work related to cultural relic
+                  digitization and cultural heritage preservation, combining artificial
+                  intelligence, computer graphics, and cultural creativity to bring new digital
+                  vitality to the transmission of cultural resources.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-links">
+          <a class="footer-pill" href="#top">Top</a>
+          <a class="footer-pill" href="#achievements">Projects</a>
+          <a class="footer-pill" href="#experience">Experience</a>
+          <a class="footer-pill" href="#development">Vision</a>
+        </div>
+        <p class="footer-copy">
+          <span id="year"></span> MENG XINGYU - Personal Website
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <div class="gallery-dialog" id="gallery-dialog" hidden>
+    <div class="gallery-backdrop" data-gallery-close></div>
+    <div class="gallery-shell" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+      <button class="gallery-close" type="button" aria-label="Close image viewer" data-gallery-close>&times;</button>
+      <div class="gallery-stage">
+        <button class="gallery-nav prev" type="button" aria-label="Previous image" id="gallery-prev">&#8249;</button>
+        <figure class="gallery-figure">
+          <img id="gallery-image" alt="">
+        </figure>
+        <button class="gallery-nav next" type="button" aria-label="Next image" id="gallery-next">&#8250;</button>
+      </div>
+      <div class="gallery-copy">
+        <p class="gallery-kicker" id="gallery-counter"></p>
+        <h3 id="gallery-title"></h3>
+        <p class="gallery-caption" id="gallery-caption"></p>
+        <p class="gallery-description" id="gallery-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-dialog video-dialog" id="video-dialog" hidden>
+    <div class="gallery-backdrop" data-video-close></div>
+    <div class="video-shell" role="dialog" aria-modal="true" aria-label="Video viewer">
+      <button class="gallery-close" type="button" aria-label="Close video viewer" data-video-close>&times;</button>
+      <div class="video-stage">
+        <button class="gallery-nav prev" type="button" aria-label="Previous video" id="video-prev">&#8249;</button>
+        <video class="video-player" id="video-player" controls playsinline preload="metadata">
+          <source id="video-source" src="" type="video/mp4">
+        </video>
+        <button class="gallery-nav next" type="button" aria-label="Next video" id="video-next">&#8250;</button>
+      </div>
+      <div class="gallery-copy">
+        <p class="gallery-kicker" id="video-counter"></p>
+        <h3 id="video-title"></h3>
+        <p class="gallery-caption" id="video-caption"></p>
+        <p class="gallery-description" id="video-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-dialog chat-dialog" id="chat-dialog" hidden>
+    <div class="gallery-backdrop" data-chat-close></div>
+    <div class="chat-shell" role="dialog" aria-modal="true" aria-labelledby="chat-title">
+      <button class="gallery-close" type="button" aria-label="Close chatbot window" data-chat-close>&times;</button>
+      <div class="chat-header">
+        <div>
+          <p class="gallery-kicker">MENG XINGYU's AI Chatbot</p>
+          <h3 class="chat-title" id="chat-title"> Powered by Dify – VPN may be required</h3>
+          <p class="chat-description">Note: The chatbot's responses are AI-generated and may not always be accurate.</p>
+        </div>
+      </div>
+      <div class="chat-frame-wrap">
+        <iframe
+          src="https://udify.app/chatbot/sWxhyuOFBH9yGZww"
+          class="chatbot-frame"
+          title="MENG XINGYU AI chatbot"
+          frameborder="0"
+          allow="microphone">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const algorithms = [
+      {
+        title: "Ray Tracing",
+        desc: "Three self-built C++/MFC rendering studies covering transparent refraction, Cornell Box radiosity, and implicit-surface ray tracing without graphics APIs.",
+        type: "gallery",
+        badge: "3 Images",
+        images: [
+          {
+            src: "resources/Algorithms/Ray Tracing/Transparent Sphere Rendering in 3D Scenes via Ray Tracing.png",
+            alt: "Transparent sphere rendering in a 3D ray-traced scene.",
+            label: "Transparent Sphere Rendering in 3D Scenes via Ray Tracing",
+            description: "An independently built ray tracer that renders a 3D scene with a checkerboard plane, diffuse and specular spheres, and a transparent refractive sphere. Implemented in MFC with C++ and no graphics rendering API, the system constructs primary rays per pixel from a camera model, represents the scene with custom geometry and material structures, searches for the nearest intersection along each ray, and recursively accumulates local illumination, shadows, specular highlights, reflection, and refraction contributions to produce the final image."
+          },
+          {
+            src: "resources/Algorithms/Ray Tracing/Cornell Box Global Illumination Renderer Based on C++.png",
+            alt: "Cornell Box global illumination rendering with two boxes.",
+            label: "Cornell Box Global Illumination Renderer Based on C++",
+            description: "A C++/MFC recreation of the classic double-box Cornell Box scene, designed to visualize indirect illumination, color bleeding between walls, and smooth tonal transitions across surfaces. Built from the ground up, the renderer implements a radiosity-based global illumination pipeline, including surface subdivision, iterative energy exchange solving, and final shading without relying on external graphics APIs."
+          },
+          {
+            src: "resources/Algorithms/Ray Tracing/Ray-Traced Sphere and Torus Scene Renderer.png",
+            alt: "Ray-traced scene with spheres and a torus.",
+            label: "Ray-Traced Sphere and Torus Scene Renderer",
+            description: "A renderer developed in MFC with C++ for a 3D scene composed of spheres and a torus, built without using any graphics API. The program traces primary rays per pixel, solves sphere intersections analytically with quadratic equations, computes torus hits by finding the roots of the quartic equation of its implicit surface, and combines Blinn-Phong shading, shadow tests, and recursive reflection and refraction to obtain the final color, with supersampling anti-aliasing available as an extensible capability."
+          }
+        ],
+        tags: ["C++", "MFC"]
+      },
+      {
+        title: "Rasterization",
+        desc: "A custom C++/MFC rasterization pipeline built around the Dugu Xin Seal, covering modeling, culling, shading, texturing, depth buffering, and planar shadow projection from first principles.",
+        type: "gallery",
+        badge: "2 Visuals",
+        images: [
+          {
+            src: "resources/Algorithms/Rasterization/Dugu Xin Seal.jpg",
+            alt: "Photograph of the Dugu Xin Seal artifact.",
+            label: "Dugu Xin Seal",
+            description: "This is a photograph of the Dugu Xin Seal, whose original artifact is held by the Shaanxi History Museum. It is a 26-faced polyhedral seal with 18 square faces and 8 triangular faces. Its owner was Dugu Xin, a prominent figure of China's Southern and Northern Dynasties. Because he held many official positions, 14 of the seal faces bear different inscriptions representing his various functions. \nUsing the Dugu Xin Seal as the subject, I built a complete rendering pipeline from geometric modeling through visibility testing, lighting and shading, texture mapping, depth-based hidden-surface removal, and shadow projection. Rather than relying on ready-made graphics interfaces, I studied the problem from the underlying mathematical theory and implemented the algorithms directly in C++."
+          },
+          {
+            src: "resources/Algorithms/Rasterization/Render Pipeline.gif",
+            alt: "Animated render pipeline demonstration for the Dugu Xin Seal rasterization project.",
+            label: "Render Pipeline",
+            description: "[Modeling]\nBy constructing explicit vertex tables and face tables, I defined the topological relationships among 26 faces and 24 vertices and used them to build the complete polyhedral structure. During display, the model supports global scaling and rotation about the coordinate axes, producing an interactively viewable wireframe animation.\n\n[Culling]\nOn top of the wireframe model, I further introduced perspective projection and back-face culling. Perspective projection maps the 3D object from world space to view space and then onto the screen plane, giving the model depth variation that matches human visual intuition. Because the Dugu Xin Seal is a convex polyhedron, I implemented a back-face culling algorithm based on the angle between the face normal and the view vector, keeping only the faces oriented toward the viewer and reducing the visual confusion caused by overlapping wireframe edges.\n\n[Shading]\nAt the surface-model stage, I implemented triangle filling with both scanline rasterization and barycentric coordinates. Square faces are split into two triangles for unified processing, while triangular faces are filled directly. In scanline shading, I sort triangle vertices, distinguish the left and right boundaries, and shade line by line using edge discretization and span filling. In barycentric filling, I first build a screen-space bounding box for each triangle, then use area ratios to compute the barycentric weights of a pixel relative to the three vertices, which allows both inside-triangle testing and interpolation of color attributes.\n\n[Gouraud Shader]\nFor the lighting stage, I implemented Gouraud shading under a local illumination model. The core idea is to compute ambient, diffuse, specular, and distance-attenuation terms at the vertices first, then linearly interpolate vertex intensities along edges and scanlines so that the triangle interior acquires continuous tonal variation.\n\n[Phong Shader]\nBuilding on Gouraud shading, I further pushed the lighting computation to the pixel level and implemented a Phong shading pipeline. During rasterization, normal and depth information are evaluated per pixel, and the lighting calculation is recomputed at each pixel position.\n\n[Projected Texture]\nA 2D pattern is projected onto the 3D seal surface like a slide projection. This requires not only the perspective projection from object space to the screen, but also an additional mapping from the projector's viewpoint into texture space, followed by per-pixel interpolation of texture coordinates for sampling. The projected image in this example is a photograph of the actor who portrayed Dugu Xin in a television production.\n\n[Wood Grain Texture]\nThis texture is procedurally generated rather than based on any existing image map. Wood grain is created directly in 3D texture space from the ring structure of coaxial cylindrical surfaces, then enhanced with periodic perturbation and spatial distortion so that the pattern resembles the growth texture of natural wood more closely. Finally, the texture space is tilted globally to reduce regularity and make the result feel more organic.\n\n[Image Texture]\nI mapped the real inscription images of the seal onto their corresponding faces individually. Because the text directions on the original seal are inconsistent and all inscriptions are mirror-symmetric, the texture mapping requires face-specific binding strategies. The sampled image colors are then used as material attributes in the per-pixel lighting computation.\n\n[Z-buffer]\nWhen the scene expands from a single object to two mutually occluding seals, back-face culling alone can no longer resolve inter-object visibility. The Z-buffer maintains a depth value and a color value for each pixel in screen space, compares the current sample against the stored pixel depth, and keeps only the result that is closest to the viewer.\n\n[Shadows]\nI implemented shadow generation with a two-pass method. In the first pass, the visible surfaces are rendered from the normal camera viewpoint. In the second pass, the light source is treated as a new center of projection, backlit surfaces are projected along the light direction, and the intersections between the rays and the ground plane are used to project the shadow polygons onto the plane."
+          }
+        ],
+        tags: ["C++", "MFC"]
+      },
+      {
+        title: "Rendering Works",
+        desc: "A collection of visual works rendered through pipelines I built myself, spanning rasterization, texture techniques, reflection workflows, and ray-traced imagery.",
+        type: "gallery",
+        badge: "3 Images",
+        images: [
+          {
+            src: "resources/Algorithms/Rendering/Render Objects.png",
+            alt: "A collection of rendered objects produced with multiple graphics algorithms.",
+            label: "Render Objects",
+            description: "I implemented a range of graphics rendering algorithms and used them to render different kinds of objects. The works shown here involve transparency, the Z-buffer algorithm, image texture mapping, function-perturbed textures, two-part texture mappings, reflection mapping, projective texture mapping, and ray tracing."
+          },
+          {
+            src: "resources/Algorithms/Rendering/Render Teapots.jpg",
+            alt: "Digitally rendered teapots created with a custom rendering pipeline.",
+            label: "Render Teapots",
+            description: "Using my self-built rendering pipeline, I digitally documented and creatively reinterpreted refined Yixing teapots. In addition to the standard Utah teapot, the image includes several Chinese zisha teapots from Yixing, Jiangsu, such as the Gaojinglan pot, Xishi pot, Duozhi pot, Shipiao pot, and Meirenjian pot."
+          },
+          {
+            src: "resources/Algorithms/Rendering/MFC & OpenGL.png",
+            alt: "Comparison between rendering results produced with MFC and OpenGL.",
+            label: "MFC & OpenGL",
+            description: "My graphics research began with mathematical theory and derivation, and I implemented the algorithms from the C++ level using the MFC framework. To validate the visual results I created, I compared them against OpenGL renderings. For example, in this image, the left side shows a normal-mapping result implemented with MFC, while the right side shows the corresponding normal-mapping result produced with OpenGL."
+          }
+        ],
+        tags: ["C++", "MFC", "OpenGL"]
+      },
+      {
+        title: "Geometry",
+        desc: "Geometric modeling studies that move from mathematical surfaces definitions to editable Bezier Surfaces and finally to manufacturable 3D-printed objects.",
+        type: "gallery",
+        badge: "3 Visuals",
+        images: [
+          {
+            src: "resources/Algorithms/Geometry/Algebraic Surface.png",
+            alt: "Geometric modeling based on algebraic and parametric surfaces.",
+            label: "Algebraic Surface",
+            description: "Modeling is carried out from the mathematical expressions of 3D objects. Using the parametric equations of spheres, tori, cylinders, and cones, I discretize smooth surfaces into planar polygons through mesh subdivision. As the number of mesh elements increases, the polygonal mesh provides a closer approximation to the underlying smooth surface."
+          },
+          {
+            src: "resources/Algorithms/Geometry/Bezier Surface.gif",
+            alt: "Animated Bezier surface modeling process.",
+            label: "Bezier Surface",
+            description: "By modifying the 16 control points of a bicubic Bezier surface patch, the surface can be reshaped into customized forms. In this work, the surface is connected end to end to simulate the process of forming a ceramic vessel."
+          },
+          {
+            src: "resources/Algorithms/Geometry/3D Printing.png",
+            alt: "Teapot reference, wireframe model, and 3D-printed result based on Bezier surfaces.",
+            label: "3D Printing",
+            description: "By stitching multiple bicubic Bezier surfaces together, complex curved forms can be constructed. I developed a measurement tool, described in the Systems section of this website, that builds 3D models from Bezier surfaces and exports them as STL files for 3D printing. The image shows a real teapot, the constructed wireframe teapot model, and the final 3D-printed result."
+          }
+        ],
+        tags: ["C++", "MFC", "3D Printing"]
+      },
+      {
+        title: "Others",
+        desc: "A selection of graphics algorithms implemented in EasyX with C++.",
+        type: "gallery",
+        badge: "2 Visuals",
+        images: [
+          {
+            src: "resources/Algorithms/Others/Cube.gif",
+            alt: "Interactive rotating cube rendered with a custom EasyX-based 3D renderer.",
+            label: "Cube",
+            description: "Without relying on any graphics API, I implemented a lightweight 3D renderer in EasyX with C++. It supports world transformation, camera transformation, perspective projection, frustum clipping, barycentric rasterization, and Z-buffering, making it possible to render and interactively inspect a rotating cube in real time."
+          },
+          {
+            src: "resources/Algorithms/Others/PhongShading.png",
+            alt: "Phong shading result implemented in EasyX with C++.",
+            label: "PhongShading",
+            description: "An implementation of the Phong lighting algorithm in EasyX with C++."
+          }
+        ],
+        tags: ["C++", "EasyX"]
+      }
+    ];
+
+    const systems = [
+      {
+        title: "Teapot 3D Studio",
+        desc: "A self-developed C++ rendering and design system for rapid teapot styling. By combining computer graphics and CAD algorithms, it lets users sketch the outer silhouette of a Yixing clay teapot with a mouse and automatically generates a 3D model for material testing and interactive preview.",
+        role: "Solo Developer",
+        status: "Completed",
+        features: ["Curve-to-3D Modeling", "Material Simulation", "Interactive 3D Preview"],
+        media: {
+          type: "video",
+          items: [
+            {
+              src: "resources/Systems/Teapot/Teapot 3D Studio.mp4",
+              label: "Teapot Design Demo",
+              description: "An interactive demonstration of the C++ teapot design workflow, from silhouette sketching to generated 3D form, material testing, and real-time preview."
+            }
+          ]
+        }
+      },
+      {
+        title: "Virtual Roaming System of Fu Shan Park",
+        desc: "A virtual roaming system developed with Unity3D and 3ds Max to reconstruct Fu Shan Park as an explorable historical environment. Users can move freely through the site, revisit the atmosphere of four centuries ago, and experience an immersive presentation of local history and culture.",
+        role: "3D Modeling & Texture Production",
+        status: "Completed",
+        features: ["Unity3D Environment Roaming", "Historical Scene Reconstruction", "Tourism Presentation Videos"],
+        media: {
+          type: "video",
+          items: [
+            {
+              src: "resources/Systems/fushan/video1.mp4",
+              label: "Virtual Roaming Footage",
+              description: "Recorded footage captured inside the virtual park, showing the reconstructed historical environment and free-roaming experience."
+            },
+            {
+              src: "resources/Systems/fushan/video2.mp4",
+              label: "Tourism System Introduction",
+              description: "A presentation video introducing the tourism-oriented experience built on top of the roaming system."
+            }
+          ]
+        }
+      },
+      {
+        title: "Magical Rendering",
+        desc: "A lightweight Android app designed for 3D printing workflows. By combining 3D modeling methods, computational geometry, and digital model storage, it converts three-dimensional forms built from bicubic Bezier surfaces into STL data for fabrication.",
+        role: "Geometry Algorithms & STL Research",
+        status: "Completed",
+        features: ["Bezier-to-STL Conversion", "Android", "3D Printing Output"],
+        media: {
+          type: "image",
+          items: [
+            {
+              src: "resources/Systems/MagicalRendering/image1.png",
+              alt: "Interface for editing the Magical Rendering model on Android.",
+              label: "Model Editing Interface",
+              description: "The editing interface used to adjust the bicubic Bezier-surface model before preparing it for export."
+            },
+            {
+              src: "resources/Systems/MagicalRendering/image2.png",
+              alt: "Export interface for converting the model into STL data.",
+              label: "STL Export Interface",
+              description: "The export view showing how the application converts the designed model into STL data for downstream fabrication."
+            },
+            {
+              src: "resources/Systems/MagicalRendering/image3.jpg",
+              alt: "Physical 3D-printed result produced from the exported Magical Rendering model.",
+              label: "3D-Printed Result",
+              description: "The final physical print generated from the exported STL model."
+            }
+          ]
+        }
+      }
+    ];
+    const tutorials = [
+      {
+        title: "Computer Graphics Micro-Lecture Series",
+        desc: "Served as the main lecturer and built a micro-lecture series on computer graphics, with all videos published on Bilibili. Selected lessons were later published as supplementary materials for textbooks, while the concluding Computer Graphics Knowledge Framework video was added to the Xuexitong app used by college students across China.",
+        role: "Main Lecturer, Algorithm Designer & Editor",
+        status: "30,000+ Views in Year One",
+        level: "Bilibili / Xuexitong",
+        features: ["Bilibili Channel: Hello_CG", "Self-Developed Algorithms & Cases", "Textbook Supplement Content", "Knowledge Framework Included in Xuexitong"],
+        image: {
+          src: "resources/Tutorials/bilibili.png",
+          alt: "Bilibili channel cover and computer graphics tutorial materials."
+        },
+        link: "https://space.bilibili.com/390086903"
+      }
+    ];
+
+    const experiences = [
+      {
+        role: "Documentation Lead for LayaAir",
+        desc: "Led the feature documentation for LayaAir within a GitBook-based documentation system and produced example-driven learning materials for users. My work covered Unity-to-LayaAir migration, onboarding workflows, a wide range of 2D and 3D components, particle systems, animation, shaders, and project publishing.",
+        links: [
+          { label: "Company", href: "https://layaair.com" },
+          { label: "CN Docs", href: "https://github.com/LayaCharley/LayaAirDoc" },
+          { label: "EN Docs", href: "https://github.com/LayaCharley/LayaAir3Doc-EN" }
+        ]
+      },
+      {
+        role: "Tutorial Video Production Lead",
+        desc: "Led the recording and publication of engine tutorials in Bilibili and YouTube. I independently planned the teaching flow, demonstrated practical engine workflows, and used AI-generated voice tracks for production. The tutorials I led included 2D physics, asset store usage, and scripting workflows.",
+        links: [
+          { label: "Bilibili", href: "https://space.bilibili.com/1736809941" },
+          { label: "YouTube", href: "https://www.youtube.com/@LayaAir" }
+        ]
+      },
+      {
+        role: "LayaNative Windows Extension Developer",
+        desc: "Built Windows DLL extension support for LayaNative, the in-house toolchain that publishes LayaAir games to platforms including Android, iOS, and Windows. I also provided an integration workflow for the Steam SDK, enabling developers to connect Steam features to games built with LayaAir and shipped on Steam.",
+        links: [
+          { label: "Project Detail", href: "https://layaair.com/3.3/doc/released/Windows/steam/readme.html" }
+        ]
+      },
+      {
+        role: "Cross-Platform Performance Testing Lead",
+        desc: "Led performance testing for the LayaAir engine across multiple release targets. The platforms I covered included Web, Android, Windows, WeChat Mini Games, Douyin Mini Games, Xiaomi Quick Games, Alipay Mini Games, and Taobao Mini Games."
+      },
+      {
+        role: "AI Knowledge Annotation Contributor",
+        desc: "Participated in the training workflow of an AI chatbot by annotating engine-related knowledge data and helping organize the LayaAir knowledge corpus into a form suitable for model learning."
+      },
+      {
+        role: "Community & Ecosystem Maintainer",
+        desc: "Maintained the engine community ecosystem by managing asset-store content, supporting the developer forum, answering user questions in detail, and coordinating internal resources to resolve developer issues efficiently.",
+        links: [
+          { label: "CN Community", href: "https://ask.layaair.com/" },
+          { label: "Asset Store", href: "https://store.layaair.com/" },
+          { label: "Discord", href: "https://discord.com/channels/1211921905775411220/" }
+        ]
+      }
+    ];
+
+    const panel = document.getElementById("tab-panel");
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    const timeline = document.getElementById("timeline");
+    const year = document.getElementById("year");
+    const chatOpenButton = document.getElementById("chat-open");
+    const emailCopyButton = document.getElementById("email-copy");
+    const galleryDialog = document.getElementById("gallery-dialog");
+    const galleryImage = document.getElementById("gallery-image");
+    const galleryTitle = document.getElementById("gallery-title");
+    const galleryCaption = document.getElementById("gallery-caption");
+    const galleryDescription = document.getElementById("gallery-description");
+    const galleryCounter = document.getElementById("gallery-counter");
+    const galleryPrevButton = document.getElementById("gallery-prev");
+    const galleryNextButton = document.getElementById("gallery-next");
+    const galleryCloseButton = galleryDialog ? galleryDialog.querySelector(".gallery-close") : null;
+    const videoDialog = document.getElementById("video-dialog");
+    const videoPlayer = document.getElementById("video-player");
+    const videoSource = document.getElementById("video-source");
+    const videoTitle = document.getElementById("video-title");
+    const videoCaption = document.getElementById("video-caption");
+    const videoDescription = document.getElementById("video-description");
+    const videoCounter = document.getElementById("video-counter");
+    const videoPrevButton = document.getElementById("video-prev");
+    const videoNextButton = document.getElementById("video-next");
+    const videoCloseButton = videoDialog ? videoDialog.querySelector(".gallery-close") : null;
+    const chatDialog = document.getElementById("chat-dialog");
+    const chatCloseButton = chatDialog ? chatDialog.querySelector(".gallery-close") : null;
+    let activeGallery = null;
+    let activeGalleryIndex = 0;
+    let activeGalleryTrigger = null;
+    let activeVideoTrigger = null;
+    let activeVideoItem = null;
+    let activeVideoIndex = 0;
+    let activeChatTrigger = null;
+
+    function syncDialogState() {
+      const hasOpenDialog =
+        (galleryDialog && !galleryDialog.hidden) ||
+        (videoDialog && !videoDialog.hidden) ||
+        (chatDialog && !chatDialog.hidden);
+
+      document.body.classList.toggle("gallery-open", hasOpenDialog);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function assetUrl(value) {
+      return encodeURI(String(value));
+    }
+
+    function iconSvg(kind, className) {
+      const cls = className ? ' class="' + className + '"' : "";
+      const common = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+
+      if (kind === "video") {
+        return (
+          '<svg viewBox="0 0 24 24"' + cls + " " + common + ">" +
+          '<rect x="2.5" y="6.5" width="14" height="11" rx="2"></rect>' +
+          '<path d="M16.5 10.5 21 7.8v8.4l-4.5-2.7"></path>' +
+          "</svg>"
+        );
+      }
+
+      if (kind === "layers") {
+        return (
+          '<svg viewBox="0 0 24 24"' + cls + " " + common + ">" +
+          '<path d="m12 3 8 4.5-8 4.5L4 7.5 12 3Z"></path>' +
+          '<path d="m4 12 8 4.5 8-4.5"></path>' +
+          '<path d="m4 16.5 8 4.5 8-4.5"></path>' +
+          "</svg>"
+        );
+      }
+
+      if (kind === "play") {
+        return (
+          '<svg viewBox="0 0 24 24"' + cls + " " + common + ">" +
+          '<rect x="3" y="4" width="18" height="12" rx="2"></rect>' +
+          '<path d="M11 18v3"></path>' +
+          '<path d="M8 21h8"></path>' +
+          '<path d="m10 8 5 3-5 3V8Z"></path>' +
+          "</svg>"
+        );
+      }
+
+      return (
+        '<svg viewBox="0 0 24 24"' + cls + " " + common + ">" +
+        '<path d="M7 17 17 7"></path>' +
+        '<path d="M8 7h9v9"></path>' +
+        "</svg>"
+      );
+    }
+
+    function renderAlgorithms() {
+      return (
+        '<div class="grid cards">' +
+        algorithms.map(function (item, index) {
+          const cardAttrs = item.type === "gallery"
+            ? ' class="card is-gallery" tabindex="0" role="button" aria-haspopup="dialog" data-gallery-index="' + index + '"'
+            : ' class="card"';
+          const cover = item.type === "gallery"
+            ? (
+              '<div class="card-cover has-image" data-badge="' + escapeHtml(item.badge || "Image Gallery") + '">' +
+              '<img class="card-cover-image" src="' + assetUrl(item.images[0].src) + '" alt="' + escapeHtml(item.images[0].alt) + '">' +
+              '<div class="card-cover-glow" aria-hidden="true"></div>' +
+              "</div>"
+            )
+            : (
+              '<div class="card-cover" data-badge="Demo Clip">' +
+              iconSvg("video", "cover-icon") +
+              "</div>"
+            );
+
+          return (
+            "<article" + cardAttrs + ">" +
+            cover +
+            '<div class="card-body">' +
+            '<h3 class="card-title">' + escapeHtml(item.title) + "</h3>" +
+            '<p class="card-copy">' + escapeHtml(item.desc) + "</p>" +
+            '<div class="tag-list">' +
+            item.tags.map(function (tag) {
+              return '<span class="tag">' + escapeHtml(tag) + "</span>";
+            }).join("") +
+            "</div>" +
+            "</div>" +
+            "</article>"
+          );
+        }).join("") +
+        "</div>"
+      );
+    }
+
+    function syncGalleryDialog() {
+      if (!activeGallery || !activeGallery.images || !activeGallery.images.length) {
+        return;
+      }
+
+      const image = activeGallery.images[activeGalleryIndex];
+      galleryImage.src = assetUrl(image.src);
+      galleryImage.alt = image.alt;
+      galleryTitle.textContent = activeGallery.title;
+      galleryCaption.textContent = image.label;
+      galleryDescription.textContent = image.description || activeGallery.fullDesc || activeGallery.desc;
+      galleryCounter.textContent = "Image " + (activeGalleryIndex + 1) + " / " + activeGallery.images.length;
+    }
+
+    function openGalleryItem(item, trigger) {
+      if (!item || item.type !== "gallery" || !item.images || !item.images.length) {
+        return;
+      }
+
+      activeGallery = item;
+      activeGalleryIndex = 0;
+      activeGalleryTrigger = trigger || null;
+      syncGalleryDialog();
+      galleryDialog.hidden = false;
+      syncDialogState();
+
+      if (galleryCloseButton) {
+        galleryCloseButton.focus();
+      }
+    }
+
+    function openGallery(index, trigger) {
+      const item = algorithms[index];
+      openGalleryItem(item, trigger);
+    }
+
+    function closeGallery() {
+      if (galleryDialog.hidden) {
+        return;
+      }
+
+      galleryDialog.hidden = true;
+      syncDialogState();
+      activeGallery = null;
+
+      if (activeGalleryTrigger) {
+        activeGalleryTrigger.focus();
+      }
+
+      activeGalleryTrigger = null;
+    }
+
+    function stepGallery(direction) {
+      if (!activeGallery || !activeGallery.images || !activeGallery.images.length) {
+        return;
+      }
+
+      const total = activeGallery.images.length;
+      activeGalleryIndex = (activeGalleryIndex + direction + total) % total;
+      syncGalleryDialog();
+    }
+
+    function bindGalleryCards() {
+      Array.from(panel.querySelectorAll(".card.is-gallery")).forEach(function (card) {
+        card.addEventListener("click", function () {
+          openGallery(Number(card.dataset.galleryIndex), card);
+        });
+
+        card.addEventListener("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openGallery(Number(card.dataset.galleryIndex), card);
+          }
+        });
+      });
+    }
+
+    function getSystemVideoItems(item) {
+      if (!item || !item.media || item.media.type !== "video" || !item.media.items || !item.media.items.length) {
+        return [];
+      }
+
+      return item.media.items;
+    }
+
+    function getSystemImageItems(item) {
+      if (!item || !item.media || item.media.type !== "image" || !item.media.items || !item.media.items.length) {
+        return [];
+      }
+
+      return item.media.items;
+    }
+
+    function syncVideoDialog() {
+      if (!activeVideoItem) {
+        return;
+      }
+
+      const videos = getSystemVideoItems(activeVideoItem);
+      if (!videos.length) {
+        return;
+      }
+
+      const current = videos[activeVideoIndex];
+      videoSource.src = assetUrl(current.src);
+      videoPlayer.load();
+
+      videoTitle.textContent = activeVideoItem.title;
+      videoCaption.textContent = current.label || "";
+      videoDescription.textContent = current.description || activeVideoItem.desc;
+      videoCounter.textContent = videos.length > 1
+        ? "Video " + (activeVideoIndex + 1) + " / " + videos.length
+        : "Project Video";
+
+      if (videoPrevButton) {
+        videoPrevButton.hidden = videos.length < 2;
+      }
+
+      if (videoNextButton) {
+        videoNextButton.hidden = videos.length < 2;
+      }
+    }
+
+    function openVideoDialog(index, trigger) {
+      const item = systems[index];
+      const videos = getSystemVideoItems(item);
+      if (!videos.length) {
+        return;
+      }
+
+      activeVideoItem = item;
+      activeVideoIndex = 0;
+      activeVideoTrigger = trigger || null;
+      syncVideoDialog();
+      videoDialog.hidden = false;
+      syncDialogState();
+
+      const playPromise = videoPlayer.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {});
+      }
+
+      if (videoCloseButton) {
+        videoCloseButton.focus();
+      }
+    }
+
+    function closeVideoDialog() {
+      if (videoDialog.hidden) {
+        return;
+      }
+
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+      videoSource.src = "";
+      videoPlayer.load();
+      videoDialog.hidden = true;
+      syncDialogState();
+      activeVideoItem = null;
+      activeVideoIndex = 0;
+
+      if (activeVideoTrigger) {
+        activeVideoTrigger.focus();
+      }
+
+      activeVideoTrigger = null;
+    }
+
+    function stepVideo(direction) {
+      if (!activeVideoItem) {
+        return;
+      }
+
+      const videos = getSystemVideoItems(activeVideoItem);
+      if (videos.length < 2) {
+        return;
+      }
+
+      activeVideoIndex = (activeVideoIndex + direction + videos.length) % videos.length;
+      syncVideoDialog();
+
+      const playPromise = videoPlayer.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {});
+      }
+    }
+
+    function openChatDialog(trigger) {
+      if (!chatDialog) {
+        return;
+      }
+
+      activeChatTrigger = trigger || null;
+      chatDialog.hidden = false;
+      syncDialogState();
+
+      if (chatCloseButton) {
+        chatCloseButton.focus();
+      }
+    }
+
+    function closeChatDialog() {
+      if (!chatDialog || chatDialog.hidden) {
+        return;
+      }
+
+      chatDialog.hidden = true;
+      syncDialogState();
+
+      if (activeChatTrigger) {
+        activeChatTrigger.focus();
+      }
+
+      activeChatTrigger = null;
+    }
+
+    function bindSystemMedia() {
+      Array.from(panel.querySelectorAll("[data-system-video-index]")).forEach(function (button) {
+        button.addEventListener("click", function () {
+          openVideoDialog(Number(button.dataset.systemVideoIndex), button);
+        });
+      });
+
+      Array.from(panel.querySelectorAll("[data-system-gallery-index]")).forEach(function (button) {
+        button.addEventListener("click", function () {
+          const item = systems[Number(button.dataset.systemGalleryIndex)];
+          if (!item) {
+            return;
+          }
+
+          openGalleryItem({
+            title: item.title,
+            desc: item.desc,
+            fullDesc: item.desc,
+            type: "gallery",
+            images: getSystemImageItems(item)
+          }, button);
+        });
+      });
+    }
+
+    function renderSystems() {
+      return (
+        '<div class="system-list">' +
+        systems.map(function (item, index) {
+          const videos = getSystemVideoItems(item);
+          const images = getSystemImageItems(item);
+          const visual = videos.length
+            ? (
+              '<button class="system-visual system-visual-button has-media" type="button" aria-label="Open video for ' + escapeHtml(item.title) + '" data-system-video-index="' + index + '">' +
+              '<video class="system-media" muted playsinline preload="auto" tabindex="-1" aria-hidden="true">' +
+              '<source src="' + assetUrl(videos[0].src) + '" type="video/mp4">' +
+              "</video>" +
+              '<span class="system-play">' + iconSvg("play", "cover-icon") + "<span>" + escapeHtml(videos.length > 1 ? "View Videos" : "Play Video") + "</span></span>" +
+              "</button>"
+            )
+            : images.length
+            ? (
+              '<button class="system-visual system-visual-button has-media" type="button" aria-label="Open gallery for ' + escapeHtml(item.title) + '" data-system-gallery-index="' + index + '">' +
+              '<img class="system-media" src="' + assetUrl(images[0].src) + '" alt="' + escapeHtml(images[0].alt || item.title) + '">' +
+              '<span class="system-play">' + iconSvg("layers", "cover-icon") + "<span>" + escapeHtml(images.length > 1 ? "View Gallery" : "View Image") + "</span></span>" +
+              "</button>"
+            )
+            : (
+              '<div class="system-visual">' +
+              iconSvg("layers", "cover-icon") +
+              "</div>"
+            );
+
+          return (
+            '<article class="system-card">' +
+            visual +
+            '<div class="system-body">' +
+            '<div class="system-head">' +
+            '<h3 class="system-title">' + escapeHtml(item.title) + "</h3>" +
+            "</div>" +
+            '<p class="card-copy">' + escapeHtml(item.desc) + "</p>" +
+            '<div class="feature-grid">' +
+            item.features.map(function (feature) {
+              return (
+                '<div class="feature-item">' +
+                '<span class="feature-dot" aria-hidden="true"></span>' +
+                "<span>" + escapeHtml(feature) + "</span>" +
+                "</div>"
+              );
+            }).join("") +
+            "</div>" +
+            '<div class="meta-row">' +
+            '<div><div class="meta-label">Responsibility</div><div class="meta-value">' + escapeHtml(item.role) + "</div></div>" +
+            '<div><div class="meta-label">Development Status</div><div class="meta-value">' + escapeHtml(item.status) + "</div></div>" +
+            "</div>" +
+            "</div>" +
+            "</article>"
+          );
+        }).join("") +
+        "</div>"
+      );
+    }
+    function renderTutorials() {
+      return (
+        '<div class="tutorial-grid">' +
+        tutorials.map(function (item) {
+          return (
+            '<article class="tutorial-showcase">' +
+            '<div class="tutorial-showcase-visual">' +
+            '<img class="tutorial-showcase-image" src="' + assetUrl(item.image.src) + '" alt="' + escapeHtml(item.image.alt) + '">' +
+            "</div>" +
+            '<div class="tutorial-showcase-body">' +
+            '<div class="tutorial-top">' +
+            '<div class="tutorial-icon">' + iconSvg("play", "") + "</div>" +
+            '<span class="tutorial-level">' + escapeHtml(item.level) + "</span>" +
+            "</div>" +
+            '<h3 class="system-title">' + escapeHtml(item.title) + "</h3>" +
+            '<p class="card-copy">' + escapeHtml(item.desc) + "</p>" +
+            '<div class="feature-grid">' +
+            item.features.map(function (feature) {
+              return (
+                '<div class="feature-item">' +
+                '<span class="feature-dot" aria-hidden="true"></span>' +
+                "<span>" + escapeHtml(feature) + "</span>" +
+                "</div>"
+              );
+            }).join("") +
+            "</div>" +
+            '<div class="meta-row">' +
+            '<div><div class="meta-label">Responsibility</div><div class="meta-value">' + escapeHtml(item.role) + "</div></div>" +
+            '<div><div class="meta-label">Reach</div><div class="meta-value">' + escapeHtml(item.status) + "</div></div>" +
+            "</div>" +
+            '<div class="tutorial-link-row">' +
+            '<a class="tutorial-link" href="' + escapeHtml(item.link) + '" target="_blank" rel="noreferrer">Visit Hello_CG</a>' +
+            "</div>" +
+            "</div>" +
+            "</article>"
+          );
+        }).join("") +
+        "</div>"
+      );
+    }
+
+    function renderTab(tab) {
+      if (tab === "systems") {
+        panel.innerHTML = renderSystems();
+        bindSystemMedia();
+        return;
+      }
+
+      if (tab === "tutorials") {
+        panel.innerHTML = renderTutorials();
+        return;
+      }
+
+      panel.innerHTML = renderAlgorithms();
+      bindGalleryCards();
+    }
+
+    function activateTab(tab) {
+      tabs.forEach(function (button) {
+        const active = button.dataset.tab === tab;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-selected", active ? "true" : "false");
+      });
+
+      renderTab(tab);
+    }
+
+    tabs.forEach(function (button) {
+      button.addEventListener("click", function () {
+        activateTab(button.dataset.tab);
+      });
+    });
+
+    function copyText(value) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(value);
+      }
+
+      return new Promise(function (resolve, reject) {
+        const input = document.createElement("textarea");
+        input.value = value;
+        input.setAttribute("readonly", "");
+        input.style.position = "absolute";
+        input.style.left = "-9999px";
+        document.body.appendChild(input);
+        input.select();
+
+        try {
+          document.execCommand("copy");
+          resolve();
+        } catch (error) {
+          reject(error);
+        } finally {
+          document.body.removeChild(input);
+        }
+      });
+    }
+
+    if (emailCopyButton) {
+      emailCopyButton.addEventListener("click", function () {
+        const email = emailCopyButton.dataset.email || "";
+        const defaultTooltip = email;
+
+        copyText(email).then(function () {
+          emailCopyButton.dataset.tooltip = "Copied!";
+          emailCopyButton.title = "Copied!";
+
+          window.setTimeout(function () {
+            emailCopyButton.dataset.tooltip = defaultTooltip;
+            emailCopyButton.title = defaultTooltip;
+          }, 1200);
+        }).catch(function () {
+          emailCopyButton.dataset.tooltip = defaultTooltip;
+          emailCopyButton.title = defaultTooltip;
+        });
+      });
+    }
+
+    if (chatOpenButton) {
+      chatOpenButton.addEventListener("click", function () {
+        openChatDialog(chatOpenButton);
+      });
+    }
+
+    if (galleryDialog) {
+      galleryDialog.addEventListener("click", function (event) {
+        if (event.target.hasAttribute("data-gallery-close")) {
+          closeGallery();
+        }
+      });
+    }
+
+    if (videoDialog) {
+      videoDialog.addEventListener("click", function (event) {
+        if (event.target.hasAttribute("data-video-close")) {
+          closeVideoDialog();
+        }
+      });
+    }
+
+    if (chatDialog) {
+      chatDialog.addEventListener("click", function (event) {
+        if (event.target.hasAttribute("data-chat-close")) {
+          closeChatDialog();
+        }
+      });
+    }
+
+    if (galleryPrevButton) {
+      galleryPrevButton.addEventListener("click", function () {
+        stepGallery(-1);
+      });
+    }
+
+    if (galleryNextButton) {
+      galleryNextButton.addEventListener("click", function () {
+        stepGallery(1);
+      });
+    }
+
+    if (videoPrevButton) {
+      videoPrevButton.addEventListener("click", function () {
+        stepVideo(-1);
+      });
+    }
+
+    if (videoNextButton) {
+      videoNextButton.addEventListener("click", function () {
+        stepVideo(1);
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (chatDialog && !chatDialog.hidden) {
+        if (event.key === "Escape") {
+          closeChatDialog();
+        }
+        return;
+      }
+
+      if (!videoDialog.hidden) {
+        if (event.key === "Escape") {
+          closeVideoDialog();
+        } else if (event.key === "ArrowLeft") {
+          stepVideo(-1);
+        } else if (event.key === "ArrowRight") {
+          stepVideo(1);
+        }
+        return;
+      }
+
+      if (!galleryDialog.hidden) {
+        if (event.key === "Escape") {
+          closeGallery();
+        } else if (event.key === "ArrowLeft") {
+          stepGallery(-1);
+        } else if (event.key === "ArrowRight") {
+          stepGallery(1);
+        }
+      }
+    });
+
+    timeline.innerHTML = experiences.map(function (item) {
+      const company = item.company
+        ? '<span class="timeline-company">' + escapeHtml(item.company) + "</span>"
+        : "";
+      const period = item.period
+        ? '<div class="timeline-period">' + escapeHtml(item.period) + "</div>"
+        : "";
+      const links = item.links && item.links.length
+        ? (
+          '<div class="timeline-links">' +
+          item.links.map(function (link) {
+            return '<a class="timeline-link" href="' + escapeHtml(link.href) + '" target="_blank" rel="noreferrer">' + escapeHtml(link.label) + "</a>";
+          }).join("") +
+          "</div>"
+        )
+        : "";
+
+      return (
+        '<article class="timeline-item">' +
+        '<div class="timeline-role">' +
+        '<h3>' + escapeHtml(item.role) + "</h3>" +
+        company +
+        "</div>" +
+        period +
+        '<p class="timeline-copy">' + escapeHtml(item.desc) + "</p>" +
+        links +
+        "</article>"
+      );
+    }).join("");
+
+    year.textContent = new Date().getFullYear();
+    activateTab("algorithms");
+  </script>
+</body>
+</html>
