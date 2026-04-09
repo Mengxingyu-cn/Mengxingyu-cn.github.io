@@ -1028,14 +1028,26 @@
       top: 18px;
       right: 18px;
       z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 42px;
       height: 42px;
+      padding: 0;
       border: 1px solid rgba(148, 163, 184, 0.18);
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.84);
       color: var(--text);
-      font-size: 1.35rem;
+      line-height: 0;
+      appearance: none;
       cursor: pointer;
+    }
+
+    .gallery-close-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      pointer-events: none;
     }
 
     .gallery-close:hover,
@@ -1071,14 +1083,26 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 52px;
       height: 52px;
+      padding: 0;
       border: 1px solid rgba(148, 163, 184, 0.18);
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.84);
       color: var(--text);
-      font-size: 1.4rem;
+      line-height: 0;
+      appearance: none;
       cursor: pointer;
+    }
+
+    .gallery-nav-icon {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      pointer-events: none;
     }
 
     .gallery-nav.prev {
@@ -1491,13 +1515,26 @@
   <div class="gallery-dialog" id="gallery-dialog" hidden>
     <div class="gallery-backdrop" data-gallery-close></div>
     <div class="gallery-shell" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
-      <button class="gallery-close" type="button" aria-label="Close image viewer" data-gallery-close>&times;</button>
+      <button class="gallery-close" type="button" aria-label="Close image viewer" data-gallery-close>
+        <svg class="gallery-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <path d="M7 7 17 17"></path>
+          <path d="M17 7 7 17"></path>
+        </svg>
+      </button>
       <div class="gallery-stage">
-        <button class="gallery-nav prev" type="button" aria-label="Previous image" id="gallery-prev">&#8249;</button>
+        <button class="gallery-nav prev" type="button" aria-label="Previous image" id="gallery-prev">
+          <svg class="gallery-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="14.5 5.5 9 12 14.5 18.5"></polyline>
+          </svg>
+        </button>
         <figure class="gallery-figure">
           <img id="gallery-image" alt="">
         </figure>
-        <button class="gallery-nav next" type="button" aria-label="Next image" id="gallery-next">&#8250;</button>
+        <button class="gallery-nav next" type="button" aria-label="Next image" id="gallery-next">
+          <svg class="gallery-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9.5 5.5 15 12 9.5 18.5"></polyline>
+          </svg>
+        </button>
       </div>
       <div class="gallery-copy">
         <p class="gallery-kicker" id="gallery-counter"></p>
@@ -1511,13 +1548,26 @@
   <div class="gallery-dialog video-dialog" id="video-dialog" hidden>
     <div class="gallery-backdrop" data-video-close></div>
     <div class="video-shell" role="dialog" aria-modal="true" aria-label="Video viewer">
-      <button class="gallery-close" type="button" aria-label="Close video viewer" data-video-close>&times;</button>
+      <button class="gallery-close" type="button" aria-label="Close video viewer" data-video-close>
+        <svg class="gallery-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <path d="M7 7 17 17"></path>
+          <path d="M17 7 7 17"></path>
+        </svg>
+      </button>
       <div class="video-stage">
-        <button class="gallery-nav prev" type="button" aria-label="Previous video" id="video-prev">&#8249;</button>
+        <button class="gallery-nav prev" type="button" aria-label="Previous video" id="video-prev">
+          <svg class="gallery-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="14.5 5.5 9 12 14.5 18.5"></polyline>
+          </svg>
+        </button>
         <video class="video-player" id="video-player" controls playsinline preload="metadata">
           <source id="video-source" src="" type="video/mp4">
         </video>
-        <button class="gallery-nav next" type="button" aria-label="Next video" id="video-next">&#8250;</button>
+        <button class="gallery-nav next" type="button" aria-label="Next video" id="video-next">
+          <svg class="gallery-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9.5 5.5 15 12 9.5 18.5"></polyline>
+          </svg>
+        </button>
       </div>
       <div class="gallery-copy">
         <p class="gallery-kicker" id="video-counter"></p>
@@ -1531,7 +1581,12 @@
   <div class="gallery-dialog chat-dialog" id="chat-dialog" hidden>
     <div class="gallery-backdrop" data-chat-close></div>
     <div class="chat-shell" role="dialog" aria-modal="true" aria-labelledby="chat-title">
-      <button class="gallery-close" type="button" aria-label="Close chatbot window" data-chat-close>&times;</button>
+      <button class="gallery-close" type="button" aria-label="Close chatbot window" data-chat-close>
+        <svg class="gallery-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <path d="M7 7 17 17"></path>
+          <path d="M17 7 7 17"></path>
+        </svg>
+      </button>
       <div class="chat-header">
         <div>
           <p class="gallery-kicker">MENG XINGYU's AI Chatbot</p>
